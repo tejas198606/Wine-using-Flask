@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    
+    
+  
+</head>
+
+<body>
+ <div class="login">
+    <h1> BREAST_CANCER </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="clump_thickness" placeholder="clump_thickness" required="required" />
+        <input type="text" name="uniformity_of_cell_size" placeholder="uniformity_of_cell_size" required="required" />
+        <input type="text" name="uniformity_of_cell_shape" placeholder="uniformity_of_cell_shape" required="required" />
+        <input type="text" name="marginal_adhesion" placeholder="marginal_adhesion" required="required" />
+        <input type="text" name="single_epithelial_cell_size" placeholder="single_epithelial_cell_size" required="required" />
+        <input type="text" name="bare_nuclei" placeholder="bare_nuclei" required="required" />
+        <input type="text" name="bland_chromatin" placeholder="bland_chromatin" required="required" />
+        
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}                                                                   
+
+ </div>
+
+
+</body>
+</html>
